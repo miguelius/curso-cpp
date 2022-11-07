@@ -2,7 +2,6 @@
 using namespace std;
 
 int main() {
-  auto prod {1};
   auto i {0};
   int xs[4096] {};
   
@@ -13,8 +12,8 @@ int main() {
     cin >> aux;
   } while (aux != 0 && (xs[i++] = aux));
 
-  while ( i > 0 ) {
-    cout << i << ") " << xs[--i] << endl;
+  while ( i-- > 0 ) {
+    cout << i+1 << ") " << xs[i] << endl;
   }
 
   return 0;
