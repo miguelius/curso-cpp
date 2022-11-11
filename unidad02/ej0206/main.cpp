@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cassert>
-#include "Rectangulo.hpp"
+#include "../ej0204/Rectangulo.hpp"
 #include "../../comunes/comunes.hpp"
 using namespace std;
 

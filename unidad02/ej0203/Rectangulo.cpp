@@ -1,8 +1,6 @@
-#include <algorithm>
 #include "Rectangulo.hpp"
-using namespace std;
 
-int Rectangulo::Area() const {
+int Rectangulo::Area() {
     return this->base*this->altura;
 }
 
@@ -25,8 +23,4 @@ void Rectangulo::setAltura(const int altura) {
 void Rectangulo::Redimensionar(const int base, const int altura) {
   this->base = base;
   this->altura = altura;
-}
-
-int Rectangulo::MayorArea(const Rectangulo& otro) {
-  return max(this->Area(), otro.Area());
 }

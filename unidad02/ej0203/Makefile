@@ -4,13 +4,15 @@ CXXFLAGS =-std=c++14 -Wall --pedantic
 LDLIBS =-lstdc++
 obj=$(cppsrc:.cpp=.o) $(csrc:.c=.o)
 project = $(notdir $(CURDIR))
+objects = main.o Rectangulo.o
 
-all: main
+all: $(project)
+
+$(project): main ${objects}
 
 main: main.o Rectangulo.o
 
-Rectangulo.o: ../ej0204/Rectangulo.cpp
-	$(CXX) $(CXXFLAGS) -c -o Rectangulo.o ../ej0204/Rectangulo.cpp
+$(objects): %.o: %.cpp
 
 clean:
 	rm -f *.o main
