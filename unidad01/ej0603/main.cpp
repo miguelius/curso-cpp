@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cassert>
+#include "../../comunes/comunes.hpp"
 using namespace std;
 
 int pedirOpcion(const string mensaje, const int max = 99) {
@@ -12,31 +13,18 @@ int pedirOpcion(const string mensaje, const int max = 99) {
   return x;
 }
 
-double pedirDecimal(const string mensaje) {
-  auto x = 0.;
-  cout << mensaje << ": ";
-  cin >> x;
-  return x;
-}
-
 void imprimirMenu() {
   cout << "Qué hacemos con los numeritos que cargaste?" << endl;
   cout << "1) +" << endl;
   cout << "2) -" << endl;
   cout << "3) *" << endl;
   cout << "4) /" << endl;
-
 }
-
-double sum(const double x, const double y) noexcept { return x + y; }
-double sub(const double x, const double y) noexcept { return x - y; }
-double mul(const double x, const double y) noexcept { return x * y; }
-double div(const double x, const double y) { return x / y; }
 
 int main() {
   double (*operaciones[])(const double, const double) = { sum, sub, mul, div};
-  auto x = pedirDecimal("Ingresar un número");
-  auto y = pedirDecimal("Ingresar otro número");
+  auto x = pedirDato<double>("Ingresar un número");
+  auto y = pedirDato<double>("Ingresar otro número");
   imprimirMenu();
   auto opcion = pedirOpcion("Ingrese una opción ", 4);
   if (opcion == -1) {
