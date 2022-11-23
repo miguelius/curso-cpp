@@ -1,7 +1,9 @@
 #ifndef COMUNES_HPP
 #define COMUNES_HPP
 #include <iostream>
-using namespace std;
+using std::cin;
+using std::cout;
+using std::string;
 
 template <typename T>
 T pedirDato(const string mensaje) {
