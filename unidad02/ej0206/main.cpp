@@ -2,7 +2,8 @@
 #include <cassert>
 #include "../ej0204/Rectangulo.hpp"
 #include "../../comunes/comunes.hpp"
-using namespace std;
+using std::cout;
+using std::endl;
 
 int main(void) {
   auto cuantos = pedirDato<int>("Cuántos rectángulos vamos a cargar?");

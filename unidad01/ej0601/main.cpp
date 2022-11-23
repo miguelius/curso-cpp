@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cassert>
-using namespace std;
+using std::cout;
+using std::endl;
+
 
 double multiplicar(const double a, const double b) noexcept {
   return a * b;

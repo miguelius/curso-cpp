@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cassert>
 #include "Rectangulo.hpp"
-using namespace std;
+using std::cout;
+using std::endl;
 
 void verifico_si_al_salir_de_funcion_limpia() {
   auto ins = Rectangulo::Instancias();  

@@ -1,7 +1,10 @@
 #include <iostream>
 #include <cassert>
 #include "../../comunes/comunes.hpp"
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
 
 int pedirOpcion(const string mensaje, const int max = 99) {
   auto x = 0;

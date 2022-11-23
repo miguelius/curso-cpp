@@ -1,7 +1,6 @@
 #ifndef MIARRAY_HPP
 #define MIARRAY_HPP
 #include <cstddef>
-using namespace std;
 
 class MiArray {
     private:

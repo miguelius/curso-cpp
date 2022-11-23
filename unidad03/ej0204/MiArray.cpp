@@ -1,6 +1,7 @@
 #include "MiArray.hpp"
 #include <iostream>
-using namespace std;
+using std::cerr;
+using std::endl;
 
 MiArray::MiArray(size_t el_tamanio) {
     this->tamanio = el_tamanio;

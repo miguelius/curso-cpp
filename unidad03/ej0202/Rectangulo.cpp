@@ -1,6 +1,6 @@
 #include <algorithm>
 #include "Rectangulo.hpp"
-using namespace std;
+using std::max;
 
 Rectangulo::Rectangulo() {
   this->altura = 1;

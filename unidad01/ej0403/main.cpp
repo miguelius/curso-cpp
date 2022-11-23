@@ -1,5 +1,7 @@
 #include <iostream>
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
 
 int main() {
   constexpr int MULTIPLOS_DE {3};

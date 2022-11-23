@@ -1,5 +1,6 @@
 #include <iostream>
-using namespace std;
+using std::cout;
+using std::endl;
 
 int main(void) {
   cout << "Primer ejercicio en C++" << endl;

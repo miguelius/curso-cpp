@@ -1,6 +1,6 @@
 #include <algorithm>
 #include "Rectangulo.hpp"
-using namespace std;
+using std::max;
 
 int Rectangulo::Area() const {
     return this->base*this->altura;

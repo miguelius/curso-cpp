@@ -2,7 +2,8 @@
 #include <cassert>
 #include <cassert>
 #include "MiArray.hpp"
-using namespace std;
+using std::cout;
+using std::endl;
 
 int main(void) {
   auto p = new MiArray(3);

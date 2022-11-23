@@ -1,6 +1,6 @@
 #include <algorithm>
 #include "Rectangulo.hpp"
-using namespace std;
+using std::max;
 
 unsigned int Rectangulo::n_instancias {0};
 

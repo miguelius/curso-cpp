@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cassert>
-using namespace std;
+using std::cout;
+using std::endl;
 
 int main() {
   int i = 42;

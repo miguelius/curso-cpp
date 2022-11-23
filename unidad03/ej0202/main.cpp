@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cassert>
 #include "Rectangulo.hpp"
-using namespace std;
+using std::cout;
+using std::endl;
 
 int main(void) {
   auto r = Rectangulo();

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cassert>
-using namespace std;
+using std::cout;
+using std::endl;
 
 int sum(const int vec[], const int n);
 

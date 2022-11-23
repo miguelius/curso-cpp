@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cassert>
 #include "../../comunes/comunes.hpp"
-using namespace std;
+using std::cout;
+using std::endl;
 
 int main() {
   auto cuantos = pedirDato<int>("Cuántos números vamos a cargar?");
