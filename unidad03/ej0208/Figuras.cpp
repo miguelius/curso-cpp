@@ -5,6 +5,18 @@ using std::max;
 using std::cerr;
 using std::endl;
 
+Figura::~Figura() {
+  if ("Generico" == this->Tipo()) {
+    Generico::Soltar();
+  } else if ("Cuadrado" == this->Tipo()) {
+    Cuadrado::Soltar();
+  } else if ("Circulo" == this->Tipo()) {
+    Circulo::Soltar();
+  } else {
+    cerr << "Tipo: " << this->Tipo() << " desconocido. " << endl;
+  }
+}
+
 string Figura::Tipo() const {
   return this->_tipo;
 }
@@ -28,13 +40,13 @@ int Figura::Lados() const {
 float Figura::Area() const { 
   if ("Generico" == this->Tipo()) {
     return 0;
-  } if ("Cuadrado" == this->Tipo()) {
+  } else if ("Cuadrado" == this->Tipo()) {
     auto l = ((Cuadrado *)this)->Lado();
     return l*l;
-  } if ("Circulo" == this->Tipo()) {
+  } else if ("Circulo" == this->Tipo()) {
     auto r = ((Circulo *)this)->Radio();
     return r * r * 3.14;
-  } 
+  }
   cerr << "Tipo: " << this->Tipo() << " desconocido. " << endl;
   return -1;
 }
@@ -99,4 +111,16 @@ unsigned int Circulo::Instancias() {
 
 unsigned int Cuadrado::Instancias() {
   return Cuadrado::n_instancias;
+}
+
+void Generico::Soltar() {
+  Generico::n_instancias--;
+}
+
+void Circulo::Soltar() {
+  Circulo::n_instancias--;
+}
+
+void Cuadrado::Soltar() {
+  Cuadrado::n_instancias--; 
 }
