@@ -45,11 +45,12 @@ int main(void) {
   x-=y;
   cout << x << endl;
   cout << Complejo::i << endl;
-  cout << ++x << endl;
-  cout << x++ << endl;
-  cout << x << endl;
-  cout << --x << endl;
-  cout << x-- << endl;
-  cout << x << endl;
+  auto q = x;
+  cout << ++q << " = " << x * 2 <<  endl;
+  cout << q++ << " = " << x * 2 << endl;
+  cout << q << " = " << x * 3 << endl;
+  cout << --q << " = " << x * 2 << endl;
+  cout << q-- << " = " << x * 2 << endl;
+  cout << q   << " = " << x << endl;
   return 0;
 }
