@@ -4,13 +4,29 @@
 using std::ostream;
 using std::max;
 
+inline Complejo sumar(const Complejo x, const Complejo y) {
+  return Complejo(x.Real() + y.Real(), x.Imaginaria() + y.Imaginaria());
+}
+
+// (a+bi)*(c+di)
+// a*c + a*di + bi*c + bi*di
+// a*c + a*di + b*ci - b*d
+// a*c - b*d + (a*d + b*c)i
+inline Complejo multiplicar(const Complejo x, const Complejo y) {
+  auto a = x.Real() * y.Real() - x.Imaginaria() * y.Imaginaria();
+  auto b = x.Imaginaria() * y.Real() + x.Real() * y.Imaginaria();
+
+  return Complejo(a, b);
+}
+
+
 Complejo Complejo::i = Complejo(0,1);
 
-float Complejo::Real() const {
+inline float Complejo::Real() const {
   return this->real;
 }
 
-float Complejo::Imaginaria() const {
+inline float Complejo::Imaginaria() const {
   return this->imaginaria;
 }
 
@@ -22,54 +38,52 @@ Complejo::Complejo(const float r, const float i): real { r }, imaginaria { i } {
 
 }
 
-Complejo Complejo::sumar(const Complejo y) {
-  return Complejo(this->real + y.real, this->imaginaria + y.imaginaria);
-}
-
-// (a+bi)*(c+di)
-// a*c + a*di + bi*c + bi*di
-// a*c + a*di + b*ci - b*d
-// a*c - b*d + (a*d + b*c)i
-Complejo Complejo::multiplicar(const Complejo y) {
-  auto a = this->real * y.real - this->imaginaria * y.imaginaria;
-  auto b = this->imaginaria * y.real + this->real * y.imaginaria;
-
-  return Complejo(a, b);
-}
-
 Complejo Complejo::operator+ (const Complejo& y) {
-  return this->sumar(y);
+  return sumar(*this, y);
 }
 
 Complejo Complejo::operator- (const Complejo& y) {
-  return this->sumar((Complejo )y*-1.0);
+  return sumar(*this, ((Complejo )y*-1.0) );
 }
 
 Complejo Complejo::operator* (const Complejo& y) {
-  return this->multiplicar(y);
+  return multiplicar(*this,y);
 }
 
 std::ostream& operator<< (std::ostream& out, const Complejo& c) {
-  out << c.Real() << " + " << c.Imaginaria() << "i";
+  auto esconderSigno = false;
+  if (c.Real() != 0.) {
+    out << c.Real();
+  } else {
+    esconderSigno = true;
+  }
+  if (c.Imaginaria() != 0.) {
+    if (c.Imaginaria() < 0) { 
+      out << " - ";
+    } else if (c.Imaginaria() > 0 && !esconderSigno) { 
+      out << " + ";
+    }
+    out << std::abs(c.Imaginaria()) << "i";
+  }
   return out;
 }
 
 Complejo& Complejo::operator+= (const Complejo& x) {
-  *this = this->sumar(x);
+  *this = sumar(*this, x);
   return *this;
 } 
 
 Complejo Complejo::operator* (const double& x) {
-  return this->multiplicar(Complejo(x,0));
+  return multiplicar(*this, Complejo(x,0));
 } 
 
 Complejo& Complejo::operator-= (const Complejo& x) {
-  *this = this->sumar((Complejo )x*(-1.0));
+  *this = sumar(*this, (Complejo )x*(-1.0));
   return *this;
 } 
 
 Complejo& Complejo::operator*= (const Complejo& x) {
-  *this = this->multiplicar(x);
+  *this = multiplicar(*this, x);
   return *this;
 }
 
@@ -103,3 +117,7 @@ Complejo Complejo::operator-- (int) {
   operator--();
   return old;
 } 
+
+Complejo Complejo::conjugar() {
+  return Complejo(this->real, -this->imaginaria);
+}

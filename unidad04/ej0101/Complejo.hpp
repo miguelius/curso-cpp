@@ -8,14 +8,16 @@ class Complejo {
 
   public:
     static Complejo i;
-    float Real() const;
-    float Imaginaria() const;
+    inline float Real() const;
+    inline float Imaginaria() const;
 
     Complejo();
     Complejo(const float r, const float i);
+    Complejo(const Complejo&) = default;
 
-    Complejo sumar(const Complejo y);
-    Complejo multiplicar(const Complejo y);
+    Complejo conjugar();
+    // Complejo sumar(const Complejo y);
+    // Complejo multiplicar(const Complejo y);
 
     Complejo operator+ (const Complejo& x); 
     Complejo operator- (const Complejo& x); 
