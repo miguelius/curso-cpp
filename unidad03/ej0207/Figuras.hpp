@@ -25,6 +25,8 @@ class Generico: public Figura {
   
   public:
     Generico(const int lados);
+    float Area() const;
+    float Perimetro() const;
     
 };
 
@@ -34,6 +36,8 @@ class Cuadrado: public Figura {
   
   public:
     Cuadrado(const float lado);
+    float Area() const;
+    float Perimetro() const;
     
     float Lado() const;
 };
@@ -44,6 +48,9 @@ class Circulo: public Figura {
   
   public:
     Circulo(const float r);
+    float Area() const;
+    float Perimetro() const;
+
     float Diametro() const;
 
     float Radio() const;

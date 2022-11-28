@@ -27,12 +27,12 @@ class Generico: public Figura {
     static unsigned int n_instancias;
 
   public:
+    ~Generico();
     Generico(const int lados);
     float Area() const;
     float Perimetro() const;
 
     static unsigned int Instancias();
-    static void Soltar();    
 };
 
 class Cuadrado: public Figura {
@@ -41,13 +41,13 @@ class Cuadrado: public Figura {
     static unsigned int n_instancias;
   
   public:
+    ~Cuadrado();
     Cuadrado(const float lado);
     float Area() const;
     float Perimetro() const;
     
     float Lado() const;
     static unsigned int Instancias();
-    static void Soltar();
 };
 
 class Circulo: public Figura {
@@ -56,6 +56,7 @@ class Circulo: public Figura {
     static unsigned int n_instancias;
   
   public:
+    ~Circulo();
     Circulo(const float r);
     float Area() const;
     float Perimetro() const;
@@ -65,7 +66,6 @@ class Circulo: public Figura {
     void Radio(const float r);
 
     static unsigned int Instancias();
-    static void Soltar();
 };
 
 #endif

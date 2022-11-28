@@ -6,15 +6,7 @@ using std::cerr;
 using std::endl;
 
 Figura::~Figura() {
-  if ("Generico" == this->Tipo()) {
-    Generico::Soltar();
-  } else if ("Cuadrado" == this->Tipo()) {
-    Cuadrado::Soltar();
-  } else if ("Circulo" == this->Tipo()) {
-    Circulo::Soltar();
-  } else {
-    cerr << "Tipo: " << this->Tipo() << " desconocido. " << endl;
-  }
+
 }
 
 string Figura::Tipo() const {
@@ -113,14 +105,14 @@ unsigned int Cuadrado::Instancias() {
   return Cuadrado::n_instancias;
 }
 
-void Generico::Soltar() {
-  Generico::n_instancias--;
-}
-
-void Circulo::Soltar() {
+Circulo::~Circulo() {
   Circulo::n_instancias--;
 }
 
-void Cuadrado::Soltar() {
+Generico::~Generico() {
+  Generico::n_instancias--;
+}
+
+Cuadrado::~Cuadrado() {
   Cuadrado::n_instancias--; 
 }
