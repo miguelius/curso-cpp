@@ -37,32 +37,32 @@ int Figura::Lados() const {
   return this->_lados;
 }
 
-float Figura::Area() const { 
-  if ("Generico" == this->Tipo()) {
-    return 0;
-  } else if ("Cuadrado" == this->Tipo()) {
-    auto l = ((Cuadrado *)this)->Lado();
-    return l*l;
-  } else if ("Circulo" == this->Tipo()) {
-    auto r = ((Circulo *)this)->Radio();
-    return r * r * 3.14;
-  }
-  cerr << "Tipo: " << this->Tipo() << " desconocido. " << endl;
-  return -1;
+float Generico::Area() const { 
+  return 0;
 }
 
-float Figura::Perimetro() const { 
-  if ("Generico" == this->Tipo()) {
-    return 0;
-  } if ("Cuadrado" == this->Tipo()) {
-    auto l = ((Cuadrado *)this)->Lado();
-    return 4*l;
-  } if ("Circulo" == this->Tipo()) {
-    auto d = ((Circulo *)this)->Diametro();
+float Cuadrado::Area() const {
+    auto l = this->Lado();
+    return l*l;
+}
+
+float Circulo::Area() const { 
+    auto r = this->Radio();
+    return r * r * 3.14;
+}
+
+float Generico::Perimetro() const { 
+  return 0;
+}
+
+float Cuadrado::Perimetro() const { 
+  auto l = this->Lado();
+  return 4*l;
+}
+
+float Circulo::Perimetro() const { 
+    auto d = this->Diametro();
     return d * 3.14;
-  } 
-  cerr << "Tipo: " << this->Tipo() << " desconocido. " << endl;
-  return -1;
 }
 
 Generico::Generico(const int lados) {
